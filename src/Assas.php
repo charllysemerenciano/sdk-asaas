@@ -22,5 +22,7 @@
 			$this->token = $token;
 			$this->ambiente = $ambiente;
 			
+			$conexao = new Conexao($token, $ambiente);
+			
 		}
 	}
