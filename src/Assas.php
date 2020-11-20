@@ -13,6 +13,9 @@
 		
 		/**
 		 * Assas constructor.
+		 *
+		 * @param        $token
+		 * @param string $ambiente
 		 */
 		public function __construct($token, $ambiente = 'producao')
 		{
