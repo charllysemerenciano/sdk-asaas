@@ -4,12 +4,17 @@
 	 * @create 20/11/2020
 	 */
 	
+	namespace Api;
+	
+	use Api\util\Cliente;
+	use Api\util\Conexao;
+	
 	class Assas
 	{
 		
 		private $token;
 		private $ambiente;
-		
+		protected $cliente;
 		
 		/**
 		 * Assas constructor.
@@ -23,6 +28,8 @@
 			$this->ambiente = $ambiente;
 			
 			$conexao = new Conexao($token, $ambiente);
+			
+			$this->cliente = new Cliente($conexao, '/customers');
 			
 		}
 	}
