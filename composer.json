@@ -1,0 +1,25 @@
+{
+  "name": "sdk-assas",
+  "description": "sdk assas",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Charllys Emerenciano",
+      "email": "charllysemerenciano@gmail.com"
+    }
+  ],
+  "require-dev": {
+    "roave/security-advisories": "dev-master"
+  },
+  "require": {
+    "ext-curl": "*",
+    "ext-json": "*",
+    "phpunit/phpunit": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Api\\": "src/"
+    }
+  }
+}
