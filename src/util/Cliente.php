@@ -69,9 +69,6 @@
 		private function clienteToArray(array $dadosCliente)
 		{
 			try {
-				if (!$this->validarCliente($dadosCliente)) {
-					return GeralException::dadosFaltantes();
-				}
 				
 				$this->cliente = [
 					'name'                 => '',
@@ -98,27 +95,7 @@
 				return $this->cliente;
 				
 			} catch (Exception $e) {
-				return GeralException::outraExcecao($e->getMessage());
+				return ['error' => ['code' => 400, 'description' => $e->getMessage()]];
 			}
-		}
-		
-		/**
-		 * @param $cliente
-		 *
-		 * @return bool
-		 */
-		private function validarCliente($cliente): bool
-		{
-			$paramObrigatorios = [
-				'name',
-				'cpfCnpj'
-			];
-			
-			foreach ($paramObrigatorios as $param) {
-				if (empty($cliente[$param]) || !isset($cliente[$param])) {
-					return false;
-				}
-			}
-			return true;
 		}
 	}

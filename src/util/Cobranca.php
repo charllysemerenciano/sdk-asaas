@@ -16,16 +16,6 @@
 		protected $cobranca;
 		
 		/**
-		 * @param $id
-		 *
-		 * @return mixed
-		 */
-		public function getById($id)
-		{
-			return $this->http->get($this->uri . $id);
-		}
-		
-		/**
 		 * @param $customer_id
 		 *
 		 * @return mixed
@@ -64,10 +54,6 @@
 		private function cobrancaToArray(array $dadosCobranca)
 		{
 			
-			if (!$this->validarCobranca($dadosCobranca)) {
-				return GeralException::dadosFaltantes();
-			}
-			
 			try {
 				$this->cobranca = [
 					'customer'          => '',
@@ -87,27 +73,9 @@
 				return $this->cobranca;
 				
 			} catch (Exception $e) {
-				return GeralException::outraExcecao($e->getMessage());
+				return ['error' => ['code' => 400, 'description' => $e->getMessage()]];
 			}
 			
 		}
 		
-		private function validarCobranca(array $cobranca): bool
-		{
-			$paramObrigatorios = [
-				'customer',
-				'billingType',
-				'value',
-				'dueDate'
-			];
-			
-			foreach ($paramObrigatorios as $param) {
-				if (empty($cobranca[$param]) || !isset($cobranca[$param])) {
-					return false;
-				}
-			}
-			
-			return true;
-			
-		}
 	}
