@@ -12,9 +12,11 @@
 	class Assas
 	{
 		
-		private $token;
-		private $ambiente;
 		protected $cliente;
+		protected $cobranca;
+		protected $assinatura;
+		protected $notaFiscal;
+		
 		
 		/**
 		 * Assas constructor.
@@ -24,12 +26,13 @@
 		 */
 		public function __construct($token, $ambiente = 'producao')
 		{
-			$this->token = $token;
-			$this->ambiente = $ambiente;
 			
 			$conexao = new Conexao($token, $ambiente);
 			
 			$this->cliente = new Cliente($conexao, '/customers');
+			$this->cobranca = new Cliente($conexao, '/payments');
+			$this->assinatura = new Cliente($conexao, '/subscriptions');
+			$this->notaFiscal = new Cliente($conexao, '/invoices');
 			
 		}
 	}

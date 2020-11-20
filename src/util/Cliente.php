@@ -6,12 +6,14 @@
 	
 	namespace Api\util;
 	
+	use Api\enum\MetodosGerais;
 	use Api\exception\ClienteException;
-	use Api\model\ClienteModel;
 	use Exception;
 	
-	class Cliente extends Geral
+	class Cliente
 	{
+		use MetodosGerais;
+		
 		protected $cliente;
 		
 		

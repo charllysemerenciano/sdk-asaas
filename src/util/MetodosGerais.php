@@ -1,14 +1,15 @@
 <?php
-	
-	
 	/**
 	 * @Author Charllys Emerenciano
 	 * @create 20/11/2020
 	 */
 	
-	namespace Api\util;
+	namespace Api\enum;
 	
-	class Geral
+	
+	use Api\util\Conexao;
+	
+	trait MetodosGerais
 	{
 		protected $http;
 		protected $uri;
@@ -58,5 +59,4 @@
 		{
 			return $this->http->get($this->uri . $id, '', 'DELETE');
 		}
-		
 	}
