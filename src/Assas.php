@@ -6,16 +6,19 @@
 	
 	namespace Api;
 	
+	use Api\util\Assinatura;
 	use Api\util\Cliente;
+	use Api\util\Cobranca;
 	use Api\util\Conexao;
+	use Api\util\NotaFiscal;
 	
 	class Assas
 	{
 		
-		protected $cliente;
-		protected $cobranca;
-		protected $assinatura;
-		protected $notaFiscal;
+		public $cliente;
+		public $cobranca;
+		public $assinatura;
+		public $notaFiscal;
 		
 		
 		/**
@@ -30,9 +33,9 @@
 			$conexao = new Conexao($token, $ambiente);
 			
 			$this->cliente = new Cliente($conexao, '/customers');
-			$this->cobranca = new Cliente($conexao, '/payments');
-			$this->assinatura = new Cliente($conexao, '/subscriptions');
-			$this->notaFiscal = new Cliente($conexao, '/invoices');
+			$this->cobranca = new Cobranca($conexao, '/payments');
+			$this->assinatura = new Assinatura($conexao, '/subscriptions');
+			$this->notaFiscal = new NotaFiscal($conexao, '/invoices');
 			
 		}
 	}

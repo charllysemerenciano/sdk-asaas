@@ -6,8 +6,8 @@
 	
 	namespace Api\util;
 	
-	use Api\enum\MetodosGerais;
 	use Api\exception\ClienteException;
+	use Api\exception\GeralException;
 	use Exception;
 	
 	class Cliente
@@ -70,7 +70,7 @@
 		{
 			try {
 				if (!$this->validarCliente($dadosCliente)) {
-					return ClienteException::invalidClient();
+					return GeralException::dadosFaltantes();
 				}
 				
 				$this->cliente = [
@@ -98,7 +98,7 @@
 				return $this->cliente;
 				
 			} catch (Exception $e) {
-				return ClienteException::otherException($e->getMessage());
+				return GeralException::outraExcecao($e->getMessage());
 			}
 		}
 		

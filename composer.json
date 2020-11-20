@@ -16,7 +16,8 @@
     "php": ">=7.0",
     "ext-curl": "*",
     "ext-json": "*",
-    "phpunit/phpunit": "*"
+    "phpunit/phpunit": "*",
+    "myclabs/php-enum" : "*"
   },
   "autoload": {
     "psr-4": {

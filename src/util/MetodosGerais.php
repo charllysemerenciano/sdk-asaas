@@ -4,7 +4,7 @@
 	 * @create 20/11/2020
 	 */
 	
-	namespace Api\enum;
+	namespace Api\util;
 	
 	
 	use Api\util\Conexao;
