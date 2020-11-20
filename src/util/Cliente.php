@@ -38,26 +38,8 @@
 			if (!empty($dataClient['error'])) {
 				return $dataClient;
 			}
-			$client = $this->http->post($this->uri, $dataClient);
 			
-			$clientModel = new ClienteModel($client->name, $client->cpfCnpj);
-			$clientModel->setId($client->id ?? null);
-			$clientModel->setDataCriacao($client->dateCreated ?? null);
-			$clientModel->setEmail($client->email ?? null);
-			$clientModel->setTelefone($client->phone ?? null);
-			$clientModel->setTelefoneCelular($client->mobilePhone ?? null);
-			$clientModel->setLogradouro($client->address ?? null);
-			$clientModel->setNumero($client->addressNumber ?? null);
-			$clientModel->setComplemento($client->complement ?? null);
-			$clientModel->setBairro($client->province ?? null);
-			$clientModel->setCep($client->postalCode ?? null);
-			$clientModel->setEmailsAdicionais($client->additionalEmails ?? null);
-			$clientModel->setReferenciaExterna($client->externalReference ?? null);
-			$clientModel->setDesativarNotificacao($client->notificationDisabled ?? null);
-			$clientModel->setObservacoes($client->observations ?? null);
-			
-			return $clientModel;
-			
+			return $this->http->post($this->uri, $dataClient);
 		}
 		
 		/**

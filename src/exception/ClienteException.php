@@ -10,12 +10,12 @@
 	class ClienteException
 	{
 		
-		public static function invalidClient()
+		public static function invalidClient(): array
 		{
 			return ['error' => ['code' => 412, 'description' => 'Dados obrigatórios inválidos']];
 		}
 		
-		public static function otherException(string $getMessage)
+		public static function otherException(string $getMessage): array
 		{
 			return ['error' => ['code' => 400, 'description' => $getMessage]];
 		}
